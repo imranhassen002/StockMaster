@@ -1,0 +1,1 @@
+"""StockMaster desktop application."""

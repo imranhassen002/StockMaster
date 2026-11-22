@@ -1,0 +1,16 @@
+product_id,name,category,unit_cost,selling_price,quantity,minimum_stock
+23C1BB219448,Laptop,Electronics,15000,18500,8,3
+B7D59C74BC5B,Mouse,Electronics,150,250,1,5
+6C5739F6313B,Notebook,Stationery,30,50,0,10
+1C80A3B1799D,USB Flash Drive 64GB,Electronics,180,290,22,8
+BDD606671AD1,Wireless Keyboard,Electronics,420,650,4,5
+3EB146685257,HDMI Cable,Electronics,60,120,30,10
+23B8392456DE,Ballpoint Pen (Pack of 10),Stationery,45,80,40,15
+1A3DBC8960A9,A4 Printer Paper,Stationery,110,175,12,10
+BD9CAD3C2D6D,Stapler,Stationery,70,130,9,4
+8B9DE465E150,Office Chair,Furniture,2200,3100,5,2
+972A16419F82,Desk Lamp,Furniture,350,520,7,3
+08226C031199,Bookshelf,Furniture,1400,2050,3,2
+17FC07A0CA6E,Coffee Beans 1kg,Groceries,320,480,14,6
+3B8F37F8A88B,Bottled Water (12 Pack),Groceries,55,95,0,8
+9A1D815EF6D1,Green Tea (50 Bags),Groceries,65,110,18,6

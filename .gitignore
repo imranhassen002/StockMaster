@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Runtime files created by StockMaster
+data/products.lock
+data/pending_sale.json
+
+# Local backups and exported workbooks
+_backup_before_demo/
+*.xlsx
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
