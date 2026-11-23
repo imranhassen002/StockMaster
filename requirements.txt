@@ -1,4 +1,8 @@
-pandas
-numpy
-matplotlib
-openpyxl
+# StockMaster - external Python packages (install with: python -m pip install -r requirements.txt)
+pandas>=1.5
+numpy>=1.23
+matplotlib>=3.6
+openpyxl>=3.0
+
+# Also used, but built into Python (no installation needed):
+# tkinter / ttk, csv, decimal, dataclasses, pathlib, uuid, json, unittest

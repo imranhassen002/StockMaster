@@ -6,6 +6,7 @@ from stockmaster.excel_service import export_products, review_product_import
 from stockmaster.pages.excel_dialogs import EXCEL_ERRORS, EXCEL_TYPES, ProductImportReview
 from stockmaster.pages.excel_dialogs import save_excel, show_excel_error
 from stockmaster.products import EDITABLE_FIELDS, search_products
+from stockmaster.regex_validation import validate_product_name, validate_category
 
 
 LOW_BACKGROUND, LOW_TEXT = "#FFF1D6", "#8A5300"
@@ -212,6 +213,16 @@ class ProductDialog(tk.Toplevel):
 
     def save(self):
         values = {field: entry.get() for field, entry in self.entries.items()}
+        # Regex check for typed names and categories. Empty fields are left to
+        # validate_product, which shows the "is required" message.
+        try:
+            if values["name"].strip():
+                values["name"] = validate_product_name(values["name"])
+            if values["category"].strip():
+                values["category"] = validate_category(values["category"])
+        except ValueError as error:
+            messagebox.showerror("Invalid Product", str(error), parent=self)
+            return
         try:
             self.save_product(values)
         except (OSError, ValueError, csv.Error) as error:

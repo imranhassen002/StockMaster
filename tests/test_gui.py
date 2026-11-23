@@ -93,13 +93,13 @@ class StockMasterGUITests(unittest.TestCase):
         with patch("stockmaster.pages.products.messagebox.showerror") as error:
             self.click(form, "Save")
             self.assertIn("Product Name is required", error.call_args.args[1])
-        long_name = "Braided USB-C cable with reinforced connector " * 4 + "extra long"
+        long_name = "Braided USB-C cable with reinforced connector " * 2 + "long"  # max 100 characters (regex rule)
         for field, value in dict(PRODUCT, name=long_name).items():
             set_entry(form.entries[field], value)
         self.click(form, "Save")
         product_id, = page.table.get_children()
         self.assertEqual(page.table.set(product_id, "Product Name"), long_name)
-        page.search_text.set("extra long")
+        page.search_text.set("connector long")
         self.assertEqual(page.table.get_children(), (product_id,))
         page.search_text.set("unmatched")
         self.assertEqual(page.table.get_children(), ())

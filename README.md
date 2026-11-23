@@ -5,7 +5,7 @@ A Python desktop application for small businesses to manage products, record sal
 ## Features
 
 - **Dashboard** – total products, inventory value, sales revenue and low / out-of-stock count
-- **Products** – add, edit, delete and search products; colour-coded stock status (In Stock, Low Stock, Out of Stock)
+- **Products** – add, edit, delete and search products; regex validation of names and categories; colour-coded stock status (In Stock, Low Stock, Out of Stock)
 - **Sales** – record sales with stock checks, automatic inventory updates, searchable sales history with date filter
 - **Analytics** – revenue, transactions and units sold; revenue-over-time, top 5 products and inventory-by-category charts (Matplotlib embedded in Tkinter); date range filter
 - **Excel** – import products, export inventory and sales, generate a 5-sheet business report
@@ -13,7 +13,7 @@ A Python desktop application for small businesses to manage products, record sal
 
 ## Technologies
 
-Python · Tkinter / ttk · pandas · NumPy · Matplotlib · OpenPyXL · csv · Decimal · dataclasses · unittest
+Python · Tkinter / ttk · pandas · NumPy · Matplotlib · OpenPyXL · Regex · csv · Decimal · dataclasses · unittest
 
 ## Getting started
 
@@ -34,7 +34,7 @@ The `data/` folder includes sample data (15 products, 48 sales).
 python -m unittest discover -s tests -v
 ```
 
-42 automated tests cover products, sales, analytics, Excel features and the GUI.
+50 automated tests cover products, sales, analytics, Excel features, regex validation and the GUI. On Windows you can also double-click **`Run Tests.bat`**.
 
 ## Project structure
 
@@ -53,6 +53,7 @@ StockMaster/
 │   ├── csv_storage.py       # Atomic CSV writes
 │   ├── analytics.py         # pandas / NumPy statistics
 │   ├── excel_service.py     # OpenPyXL import / export / report
+│   ├── regex_validation.py  # Regex checks for names and categories
 │   └── pages/               # Dashboard, Products, Sales, Analytics pages
 └── tests/                   # unittest suite
 ```

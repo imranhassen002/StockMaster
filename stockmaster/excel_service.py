@@ -14,6 +14,7 @@ from openpyxl.utils.exceptions import IllegalCharacterError
 
 from stockmaster.analytics import latest_product_names, sales_totals
 from stockmaster.products import EDITABLE_FIELDS, inventory_summary, validate_product
+from stockmaster.regex_validation import validate_product_name, validate_category
 from stockmaster.sales import SALE_FIELDS
 
 
@@ -67,6 +68,14 @@ def review_product_import(path, existing_products):
             continue
         product_id = values.get("product_id", "")
         try:
+            # Regex check on the name and category read from this Excel row.
+            # A ValueError marks only this row as invalid in the review window.
+            if values["name"]:
+                try:
+                    values["name"] = validate_product_name(values["name"])
+                    values["category"] = validate_category(values["category"])
+                except ValueError as error:
+                    raise ValueError(f"Invalid Excel product data: {error}") from error
             product = validate_product(product_id, values)
         except ValueError as error:
             preview.invalid.append((row_number, str(error)))

@@ -60,7 +60,9 @@ class ExcelTests(unittest.TestCase):
         self.assertEqual(sheet.auto_filter.ref, "A1:H2")
         self.assertEqual(self.products.path.read_bytes(), before)
         preview = review_product_import(self.path, [])
-        self.assertEqual(preview.valid, [original])
+        # The regex rule rejects formula-like names such as "=1+1" on import.
+        self.assertEqual(preview.valid, [])
+        self.assertIn("Invalid Excel product data", preview.invalid[0][1])
 
     def test_review_mixed_rows_and_commit_only_valid_new_products(self):
         existing = self.products.add(PRODUCT)
