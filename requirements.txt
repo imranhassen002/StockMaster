@@ -5,4 +5,4 @@ matplotlib>=3.6
 openpyxl>=3.0
 
 # Also used, but built into Python (no installation needed):
-# tkinter / ttk, csv, decimal, dataclasses, pathlib, uuid, json, unittest
+# tkinter / ttk, re (regex), csv, decimal, dataclasses, pathlib, uuid, json, unittest
